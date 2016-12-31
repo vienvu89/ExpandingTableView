@@ -9,33 +9,33 @@
 import UIKit
 
 /// Default implementation of an expanding table view cell.
-public class ExpandingTableViewCell: UITableViewCell, ExpandingCellType {
+open class ExpandingTableViewCell: UITableViewCell, ExpandingCellType {
     
-    private let lowLayoutPriority: Float = 250
-    private let highLayoutPriority: Float = 999
+    fileprivate let lowLayoutPriority: Float = 250
+    fileprivate let highLayoutPriority: Float = 999
     
     /// Reuse identifier for the given class. 
     /// Override for custom id.
-    public static var reuseId = "ExpandingCell"
+    open static var reuseId = "ExpandingCell"
     
     /// Primary view in the cell. Be sure to connect the outlet.
-    @IBOutlet public weak var mainContainerView: UIView!
+    @IBOutlet open weak var mainContainerView: UIView!
     /// Expandable detail view in the cell. Be sure to connect the outlet.
-    @IBOutlet public weak var detailContainerView: UIView!
+    @IBOutlet open weak var detailContainerView: UIView!
     
     /// The height of the detail view. Be sure to connect the outlet.
-    @IBOutlet public weak var detailViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet open weak var detailViewHeightConstraint: NSLayoutConstraint!
     
     /// Control whether the details view is shown or not. 
     /// Override for custom behavior.
-    public var showDetails = false {
+    open var showDetails = false {
         didSet {
             detailViewHeightConstraint.priority = showDetails ? lowLayoutPriority : highLayoutPriority
         }
     }
     
     /// Hide the detail view initially.
-    override public func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         detailViewHeightConstraint.constant = 0
     }

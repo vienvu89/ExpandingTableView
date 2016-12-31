@@ -12,5 +12,5 @@ import UIKit
 public protocol ExpandingTableViewControllerType {
     
     /// Index of the currently expanded cell.
-    var expandedIndexPath: NSIndexPath? { get }
+    var expandedIndexPath: IndexPath? { get }
 }
